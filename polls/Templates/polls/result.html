@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{question.question}}
+    <ul>
+        {%for choice in question.choice_set.all%}
+        <li> {{choice.choice_text}} -- {{choice.votes}} votes  </li>
+        {%endfor%}
+    </ul>
+
+    <a href="{% url 'polls:details' question.id %}">vote again?</a>
+</body>
+</html>
