@@ -5,7 +5,7 @@ from polls.models import Question,Choice
 # admin.site.register(Question)
 # admin.site.register(Choice)
 
-class choice(admin.TabularInline):
+class Choice(admin.TabularInline):
     model = Choice
     extra =0
 
@@ -14,7 +14,7 @@ class QuestionsAdmin(admin.ModelAdmin):
                  ('Date information',{'fields':['publish_date'],'classes':['collapse']}),
                  ]
     list_display = ['question','publish_date','was_published_recently' ]
-    list_filter = ['publish_date']
+    list_filter = ['question']
     search_fields = ['question']
-    inlines = [choice]
+    inlines = [Choice]
 admin.site.register(Question,QuestionsAdmin)
